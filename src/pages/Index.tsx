@@ -207,7 +207,7 @@ export default function Index() {
             <div className="relative animate-scale-in">
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl blur-2xl opacity-30"></div>
               <img 
-                src="https://cdn.poehali.dev/projects/b9af65d6-2ad6-47aa-a63c-37f57da1d4da/files/9aadd4d3-eb4c-4adb-a597-46a79ddc872d.jpg"
+                src="https://cdn.poehali.dev/files/freepik__-__21214.jpeg"
                 alt="Студия эстетики PORTRET"
                 className="rounded-3xl relative z-10 w-full h-[600px] object-cover"
               />
