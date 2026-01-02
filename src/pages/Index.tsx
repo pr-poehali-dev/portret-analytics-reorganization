@@ -224,11 +224,11 @@ export default function Index() {
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center mb-4">
                   <Icon name="Award" size={24} className="text-white" />
                 </div>
-                <CardTitle>Сертифицированные специалисты</CardTitle>
+                <CardTitle>Профессиональные специалисты</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Наши косметологи имеют медицинское образование и регулярно повышают квалификацию
+                  Наши мастера регулярно повышают квалификацию и следят за новыми трендами в индустрии красоты
                 </p>
               </CardContent>
             </Card>
