@@ -109,9 +109,9 @@ const testimonials = [
   {
     id: 1,
     name: 'Анна Петрова',
-    text: 'Невероятный результат после биоревитализации! Кожа сияет, морщинки разгладились. Мастера профессионалы своего дела.',
+    text: 'Нарастила ресницы в Portret - теперь хожу только сюда! Голливудский объём смотрится естественно и роскошно. Мастер - золотые руки!',
     rating: 5,
-    service: 'Биоревитализация'
+    service: 'Наращивание ресниц'
   },
   {
     id: 2,
@@ -123,9 +123,9 @@ const testimonials = [
   {
     id: 3,
     name: 'Мария Иванова',
-    text: 'Контурная пластика губ - это что-то! Естественный результат, никакой утиной формы. Спасибо мастерам!',
+    text: 'Массаж лица с гаджетами на препаратах VAGHEGGI - это волшебство! Кожа подтянулась, овал лица четче, сияние изнутри. Рекомендую всем!',
     rating: 5,
-    service: 'Контурная пластика'
+    service: 'Массаж лица'
   }
 ];
 
@@ -385,7 +385,7 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-semibold">Режим работы</div>
-                    <div className="text-sm text-muted-foreground">Пн-Вс: 10:00 - 21:00</div>
+                    <div className="text-sm text-muted-foreground">Пн-Вс: 10:00 - 20:00</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -394,7 +394,7 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-semibold">Телефон</div>
-                    <div className="text-sm text-muted-foreground">+7 (423) 555-01-01</div>
+                    <div className="text-sm text-muted-foreground">+7 (914) 693-43-43</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -520,8 +520,8 @@ export default function Index() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <a href="tel:+74235550101" className="text-lg hover:text-primary transition-colors">
-                    +7 (423) 555-01-01
+                  <a href="tel:+79146934343" className="text-lg hover:text-primary transition-colors">
+                    +7 (914) 693-43-43
                   </a>
                 </CardContent>
               </Card>
@@ -533,7 +533,7 @@ export default function Index() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg">Ежедневно: 10:00 - 21:00</p>
+                  <p className="text-lg">Ежедневно: 10:00 - 20:00</p>
                   <p className="text-sm text-muted-foreground mt-2">Без выходных</p>
                 </CardContent>
               </Card>
@@ -598,8 +598,8 @@ export default function Index() {
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>г. Владивосток</p>
                 <p>ул. Уборевича, д. 19</p>
-                <p>+7 (423) 555-01-01</p>
-                <p>Пн-Вс: 10:00 - 21:00</p>
+                <p>+7 (914) 693-43-43</p>
+                <p>Пн-Вс: 10:00 - 20:00</p>
               </div>
             </div>
           </div>
