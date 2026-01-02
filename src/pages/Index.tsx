@@ -8,72 +8,69 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 
-const services = [
+const serviceCategories = [
   {
-    id: 1,
-    title: 'Чистка лица',
-    description: 'Глубокое очищение пор, удаление комедонов и мертвых клеток',
-    price: 'от 3 500 ₽',
-    duration: '60 мин',
-    icon: 'Sparkles'
+    category: 'Уходы за лицом',
+    icon: 'Sparkles',
+    services: [
+      { title: 'Массаж ручной с гаджетами VAGHEGGI', price: 3500 },
+      { title: 'Идеальная матовость (ACNON - GIGI)', price: 3500 },
+      { title: 'Внутреннее сияние (ESTER C - GIGI)', price: 3500 },
+      { title: 'Упругость и питание для мужчин (ATYPICAL - VAGHEGGI)', price: 3500 },
+      { title: 'Волшебное преображение ANTI-AGE (INTENSE - VAGHEGGI)', price: 3500 },
+      { title: 'Сияние и лоск, анти-пигмент (WHITE MOON - VAGHEGGI)', price: 3500 },
+      { title: 'Глубокое увлажнение и питание (REHYDRA - VAGHEGGI)', price: 3500 },
+      { title: 'Комбинированная чистка лица (GIGI)', price: 4000 }
+    ]
   },
   {
-    id: 2,
-    title: 'Биоревитализация',
-    description: 'Инъекции гиалуроновой кислоты для увлажнения и омоложения',
-    price: 'от 8 000 ₽',
-    duration: '45 мин',
-    icon: 'Droplets'
+    category: 'Наращивание ресниц',
+    icon: 'Eye',
+    services: [
+      { title: 'Голливудский объём', price: 4000 },
+      { title: 'Тройной объём', price: 3500 },
+      { title: 'Двойной объём', price: 3100 },
+      { title: 'Полуторный объём', price: 2900 },
+      { title: 'Классическое наращивание', price: 2700 },
+      { title: 'Снятие ресниц', price: 500 }
+    ]
   },
   {
-    id: 3,
-    title: 'Мезотерапия',
-    description: 'Витаминные коктейли для питания и восстановления кожи',
-    price: 'от 6 500 ₽',
-    duration: '40 мин',
-    icon: 'Syringe'
+    category: 'Дополнительные эффекты для ресниц',
+    icon: 'Sparkle',
+    services: [
+      { title: 'Эффект стрелочки', price: 400 },
+      { title: 'Вставки цветных ресниц', price: 400 },
+      { title: 'Эффект мокрых ресниц', price: 400 },
+      { title: 'Эффект Лучики', price: 400 }
+    ]
   },
   {
-    id: 4,
-    title: 'Пилинги',
-    description: 'Химические пилинги для обновления и выравнивания тона кожи',
-    price: 'от 4 000 ₽',
-    duration: '50 мин',
-    icon: 'Layers'
+    category: 'Макияж',
+    icon: 'Palette',
+    services: [
+      { title: 'Дневной макияж', price: 2500 },
+      { title: 'Express-макияж', price: 2000 }
+    ]
   },
   {
-    id: 5,
-    title: 'Массаж лица',
-    description: 'Лимфодренажный и скульптурный массаж для тонуса',
-    price: 'от 2 500 ₽',
-    duration: '45 мин',
-    icon: 'Hand'
-  },
-  {
-    id: 6,
-    title: 'Ботокс',
-    description: 'Коррекция мимических морщин препаратами ботулотоксина',
-    price: 'от 10 000 ₽',
-    duration: '30 мин',
-    icon: 'Smile'
-  },
-  {
-    id: 7,
-    title: 'Контурная пластика',
-    description: 'Филлеры для коррекции объёма губ, скул, подбородка',
-    price: 'от 12 000 ₽',
-    duration: '60 мин',
-    icon: 'Heart'
-  },
-  {
-    id: 8,
-    title: 'RF-лифтинг',
-    description: 'Аппаратный лифтинг для подтяжки и уплотнения кожи',
-    price: 'от 5 500 ₽',
-    duration: '60 мин',
-    icon: 'Zap'
+    category: 'Уход за руками',
+    icon: 'Hand',
+    services: [
+      { title: 'Руки принцессы: уход за нежной кожей', price: 800 }
+    ]
   }
 ];
+
+const services = serviceCategories.flatMap(cat => 
+  cat.services.slice(0, 2).map((service, idx) => ({
+    id: `${cat.category}-${idx}`,
+    title: service.title,
+    description: cat.category,
+    price: `${service.price.toLocaleString('ru-RU')} ₽`,
+    icon: cat.icon
+  }))
+);
 
 const testimonials = [
   {
@@ -265,37 +262,42 @@ export default function Index() {
       <section id="services" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Наши услуги</h2>
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text">Прайс-лист услуг</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Полный спектр косметологических процедур для ухода за кожей лица
+              Полный спектр косметологических процедур и услуг красоты
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Card 
-                key={service.id} 
-                className="border-border bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300 hover:scale-105 group cursor-pointer"
-              >
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={service.icon as any} size={28} className="text-white" />
+          <div className="space-y-8">
+            {serviceCategories.map((category, idx) => (
+              <div key={idx}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
+                    <Icon name={category.icon as any} size={24} className="text-white" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Стоимость:</span>
-                      <span className="font-semibold text-primary">{service.price}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Длительность:</span>
-                      <span className="font-semibold">{service.duration}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold gradient-text">{category.category}</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {category.services.map((service, serviceIdx) => (
+                    <Card 
+                      key={serviceIdx}
+                      className="border-border bg-card/50 backdrop-blur hover:border-primary/50 transition-all duration-300"
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-foreground mb-1">{service.title}</h4>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-xl font-bold text-primary whitespace-nowrap">
+                              {service.price.toLocaleString('ru-RU')} ₽
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -412,11 +414,13 @@ export default function Index() {
                         <SelectValue placeholder="Выберите услугу" />
                       </SelectTrigger>
                       <SelectContent>
-                        {services.map((service) => (
-                          <SelectItem key={service.id} value={service.title}>
-                            {service.title}
-                          </SelectItem>
-                        ))}
+                        {serviceCategories.map((category) => 
+                          category.services.map((service, idx) => (
+                            <SelectItem key={`${category.category}-${idx}`} value={service.title}>
+                              {service.title}
+                            </SelectItem>
+                          ))
+                        )}
                       </SelectContent>
                     </Select>
                   </div>
